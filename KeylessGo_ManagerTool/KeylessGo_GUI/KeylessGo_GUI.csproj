@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +57,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +68,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +88,30 @@
       <Project>{6c26d019-4d77-4653-9d64-625e7f485a2a}</Project>
       <Name>libKeylessGo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_program_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sample_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_entry_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_file_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\software_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\device_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
