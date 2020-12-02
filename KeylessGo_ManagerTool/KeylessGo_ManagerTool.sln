@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeylessGo_GUI", "KeylessGo_GUI\KeylessGo_GUI.csproj", "{7578030A-382C-4F3D-9F0C-83194977AC42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libKeylessGo", "libKeylessGo\libKeylessGo.csproj", "{6C26D019-4D77-4653-9D64-625E7F485A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeylessGo_Debug", "KeylessGo_Debug\KeylessGo_Debug.csproj", "{87C4F529-C6F3-42CD-BEFF-518ADF146B15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7578030A-382C-4F3D-9F0C-83194977AC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7578030A-382C-4F3D-9F0C-83194977AC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7578030A-382C-4F3D-9F0C-83194977AC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7578030A-382C-4F3D-9F0C-83194977AC42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C26D019-4D77-4653-9D64-625E7F485A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C26D019-4D77-4653-9D64-625E7F485A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C26D019-4D77-4653-9D64-625E7F485A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C26D019-4D77-4653-9D64-625E7F485A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C4F529-C6F3-42CD-BEFF-518ADF146B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C4F529-C6F3-42CD-BEFF-518ADF146B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C4F529-C6F3-42CD-BEFF-518ADF146B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C4F529-C6F3-42CD-BEFF-518ADF146B15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DACEC2FF-8D63-49ED-92C8-E24DAECF46F3}
+	EndGlobalSection
+EndGlobal

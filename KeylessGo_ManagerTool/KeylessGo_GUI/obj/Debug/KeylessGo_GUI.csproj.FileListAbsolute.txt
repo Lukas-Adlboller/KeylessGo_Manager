@@ -1,0 +1,12 @@
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\bin\Debug\KeylessGo_GUI.exe.config
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\bin\Debug\KeylessGo_GUI.exe
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\bin\Debug\KeylessGo_GUI.pdb
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\bin\Debug\libKeylessGo.dll
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\bin\Debug\libKeylessGo.pdb
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.csprojAssemblyReference.cache
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.Properties.Resources.resources
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.csproj.GenerateResource.cache
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.csproj.CoreCompileInputs.cache
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.csproj.CopyComplete
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.exe
+C:\Users\lukas\Desktop\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.pdb

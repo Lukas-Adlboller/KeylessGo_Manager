@@ -1,0 +1,80 @@
+{
+  "ADDRESS": [
+    {
+      "addressFull": "Strauchweg 12",
+      "addressName": "Adresse",
+      "city": "Lieboch",
+      "country": "at",
+      "receiver": "",
+      "state": "",
+      "zipcode": "8501"
+    }
+  ],
+  "AUTHENTIFIANT": [
+    {
+      "domain": "randomWebsite.com",
+      "email": "randomUser@randomWebsite.com",
+      "login": "BestGuyEver",
+      "note": "",
+      "password": "TheBestInTHeWorld69",
+      "secondaryLogin": "",
+      "title": "Random Website"
+    },
+    {
+      "domain": "twitter.com",
+      "email": "donald.trump@gmail.com",
+      "login": "realDonaldTrump",
+      "note": "",
+      "password": "password1234",
+      "secondaryLogin": "",
+      "title": "Twitter"
+    }
+  ],
+  "COMPANY": [
+    {
+      "jobTitle": "",
+      "name": "",
+      "sirenNumber": "",
+      "siretNumber": ""
+    }
+  ],
+  "EMAIL": [
+    {
+      "email": ""
+    }
+  ],
+  "IDENTITY": [
+    {
+      "dateOfBirth": "",
+      "dateOfBirthArea": "",
+      "fullName": "",
+      "placeOfBirth": "",
+      "pseudo": ""
+    }
+  ],
+  "PAYMENTMEANS_CREDITCARD": [
+    {
+      "bank": "",
+      "cardNumber": "",
+      "owner": ""
+    }
+  ],
+  "PAYMENTMEAN_PAYPAL": [
+    {
+      "AnonId": "",
+      "LastBackupTime": "",
+      "Login": "",
+      "Name": "PayPal",
+      "Password": "",
+      "SharedObject": "false",
+      "SpaceId": ""
+    }
+  ],
+  "PHONE": [
+    {
+      "name": "Telefonnummer",
+      "number": "",
+      "type": "Cell"
+    }
+  ]
+}
