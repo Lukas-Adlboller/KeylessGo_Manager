@@ -29,8 +29,11 @@
     private void InitializeComponent()
     {
       this.panelInformation = new System.Windows.Forms.Panel();
-      this.buttonDeviceInfo = new System.Windows.Forms.Button();
+      this.passwordEntryPanel = new System.Windows.Forms.Panel();
       this.buttonSoftwareInfo = new System.Windows.Forms.Button();
+      this.buttonDeviceInfo = new System.Windows.Forms.Button();
+      this.entryFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+      this.panel1 = new System.Windows.Forms.Panel();
       this.sideMenuePanel = new KeylessGo_GUI.GradientPanel();
       this.buttonSyncDevice = new System.Windows.Forms.Button();
       this.buttonSettings = new System.Windows.Forms.Button();
@@ -39,6 +42,7 @@
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.buttonExitProg = new System.Windows.Forms.Button();
       this.panelInformation.SuspendLayout();
+      this.panel1.SuspendLayout();
       this.sideMenuePanel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
@@ -46,13 +50,42 @@
       // panelInformation
       // 
       this.panelInformation.BackColor = System.Drawing.Color.White;
+      this.panelInformation.Controls.Add(this.passwordEntryPanel);
       this.panelInformation.Controls.Add(this.buttonSoftwareInfo);
       this.panelInformation.Controls.Add(this.buttonDeviceInfo);
-      this.panelInformation.Location = new System.Drawing.Point(200, 0);
+      this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panelInformation.Location = new System.Drawing.Point(0, 0);
       this.panelInformation.Name = "panelInformation";
-      this.panelInformation.Size = new System.Drawing.Size(914, 65);
+      this.panelInformation.Size = new System.Drawing.Size(917, 65);
       this.panelInformation.TabIndex = 0;
       this.panelInformation.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelInformation_MouseDown);
+      // 
+      // passwordEntryPanel
+      // 
+      this.passwordEntryPanel.AutoScroll = true;
+      this.passwordEntryPanel.Location = new System.Drawing.Point(0, 64);
+      this.passwordEntryPanel.Name = "passwordEntryPanel";
+      this.passwordEntryPanel.Size = new System.Drawing.Size(914, 536);
+      this.passwordEntryPanel.TabIndex = 2;
+      // 
+      // buttonSoftwareInfo
+      // 
+      this.buttonSoftwareInfo.BackColor = System.Drawing.Color.Transparent;
+      this.buttonSoftwareInfo.FlatAppearance.BorderSize = 0;
+      this.buttonSoftwareInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+      this.buttonSoftwareInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+      this.buttonSoftwareInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.buttonSoftwareInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonSoftwareInfo.ForeColor = System.Drawing.Color.Black;
+      this.buttonSoftwareInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonSoftwareInfo.ImageKey = "(none)";
+      this.buttonSoftwareInfo.Location = new System.Drawing.Point(758, 32);
+      this.buttonSoftwareInfo.Name = "buttonSoftwareInfo";
+      this.buttonSoftwareInfo.Size = new System.Drawing.Size(147, 23);
+      this.buttonSoftwareInfo.TabIndex = 4;
+      this.buttonSoftwareInfo.Text = "App Version: 1.0";
+      this.buttonSoftwareInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonSoftwareInfo.UseVisualStyleBackColor = false;
       // 
       // buttonDeviceInfo
       // 
@@ -73,24 +106,27 @@
       this.buttonDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.buttonDeviceInfo.UseVisualStyleBackColor = false;
       // 
-      // buttonSoftwareInfo
+      // entryFlowLayoutPanel
       // 
-      this.buttonSoftwareInfo.BackColor = System.Drawing.Color.Transparent;
-      this.buttonSoftwareInfo.FlatAppearance.BorderSize = 0;
-      this.buttonSoftwareInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-      this.buttonSoftwareInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-      this.buttonSoftwareInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.buttonSoftwareInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonSoftwareInfo.ForeColor = System.Drawing.Color.Black;
-      this.buttonSoftwareInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.buttonSoftwareInfo.ImageKey = "(none)";
-      this.buttonSoftwareInfo.Location = new System.Drawing.Point(758, 32);
-      this.buttonSoftwareInfo.Name = "buttonSoftwareInfo";
-      this.buttonSoftwareInfo.Size = new System.Drawing.Size(147, 23);
-      this.buttonSoftwareInfo.TabIndex = 4;
-      this.buttonSoftwareInfo.Text = "App Version: 1.0";
-      this.buttonSoftwareInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.buttonSoftwareInfo.UseVisualStyleBackColor = false;
+      this.entryFlowLayoutPanel.AutoScroll = true;
+      this.entryFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.entryFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+      this.entryFlowLayoutPanel.Location = new System.Drawing.Point(0, 65);
+      this.entryFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+      this.entryFlowLayoutPanel.Name = "entryFlowLayoutPanel";
+      this.entryFlowLayoutPanel.Size = new System.Drawing.Size(917, 535);
+      this.entryFlowLayoutPanel.TabIndex = 2;
+      this.entryFlowLayoutPanel.WrapContents = false;
+      // 
+      // panel1
+      // 
+      this.panel1.Controls.Add(this.entryFlowLayoutPanel);
+      this.panel1.Controls.Add(this.panelInformation);
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+      this.panel1.Location = new System.Drawing.Point(197, 0);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(917, 600);
+      this.panel1.TabIndex = 2;
       // 
       // sideMenuePanel
       // 
@@ -221,8 +257,8 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1114, 600);
+      this.Controls.Add(this.panel1);
       this.Controls.Add(this.sideMenuePanel);
-      this.Controls.Add(this.panelInformation);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -231,6 +267,7 @@
       this.Text = "KeylessGo Manager Tool";
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.panelInformation.ResumeLayout(false);
+      this.panel1.ResumeLayout(false);
       this.sideMenuePanel.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
@@ -249,6 +286,9 @@
     private System.Windows.Forms.Button buttonSyncDevice;
     private System.Windows.Forms.Button buttonDeviceInfo;
     private System.Windows.Forms.Button buttonSoftwareInfo;
+    private System.Windows.Forms.Panel passwordEntryPanel;
+    private System.Windows.Forms.FlowLayoutPanel entryFlowLayoutPanel;
+    private System.Windows.Forms.Panel panel1;
   }
 }
 

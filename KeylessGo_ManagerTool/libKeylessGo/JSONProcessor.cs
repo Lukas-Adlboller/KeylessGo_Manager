@@ -80,6 +80,7 @@ namespace libKeylessGo
 
         dictionary.Add(Credential.UserDataType.Title, data.Title);
         dictionary.Add(Credential.UserDataType.Password, data.Password);
+        dictionary.Add(Credential.UserDataType.Website, data.Domain);
 
         credentials.Add(new Credential(dictionary));
       }

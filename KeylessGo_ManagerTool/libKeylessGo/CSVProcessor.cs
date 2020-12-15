@@ -100,6 +100,8 @@ namespace libKeylessGo
             dataType = Credential.UserDataType.Password;
             break;
           case "Web Site":
+            dataType = Credential.UserDataType.Website;
+            break;
           case "Comments":
             dataType = null;
             break;

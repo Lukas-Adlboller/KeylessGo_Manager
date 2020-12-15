@@ -6,7 +6,7 @@ namespace libKeylessGo
 {
   public class Credential
   {
-    public enum UserDataType { Title, Login, SecondaryLogin, Category, Password };
+    public enum UserDataType { Title, Login, SecondaryLogin, Category, Password, Website };
 
     private Dictionary<UserDataType, string> CredentialDataDictionary;
 
@@ -65,6 +65,16 @@ namespace libKeylessGo
       }
 
       return false;
+    }
+
+    public string GetData(UserDataType userDataType)
+    {
+      if(!CredentialDataDictionary.ContainsKey(userDataType))
+      {
+        return string.Empty;
+      }
+
+      return CredentialDataDictionary[userDataType];
     }
   }
 }

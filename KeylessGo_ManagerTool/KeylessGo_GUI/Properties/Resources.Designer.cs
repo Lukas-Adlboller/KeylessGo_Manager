@@ -73,9 +73,29 @@ namespace KeylessGo_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_entry_icon {
+            get {
+                object obj = ResourceManager.GetObject("delete_entry_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap device_icon {
             get {
                 object obj = ResourceManager.GetObject("device_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_entry_icon {
+            get {
+                object obj = ResourceManager.GetObject("edit_entry_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -49,6 +49,7 @@
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUIEntryCreator.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\device_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_entry_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_entry_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

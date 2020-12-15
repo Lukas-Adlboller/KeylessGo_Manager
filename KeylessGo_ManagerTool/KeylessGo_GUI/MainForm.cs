@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using libKeylessGo;
 
 namespace KeylessGo_GUI
 {
@@ -54,6 +55,29 @@ namespace KeylessGo_GUI
 
       buttonSoftwareInfo.Image = KeylessGo_GUI.Properties.Resources.software_icon;
       buttonDeviceInfo.Image = KeylessGo_GUI.Properties.Resources.device_icon;
+
+      // FlowLayoutPanel
+      entryFlowLayoutPanel.HorizontalScroll.Visible = false;
+
+      // Test & Debug
+      Dictionary<Credential.UserDataType, string> dictionary = new Dictionary<Credential.UserDataType, string>();
+      dictionary.Add(Credential.UserDataType.Login, "MinecraftGamer420");
+      dictionary.Add(Credential.UserDataType.Password, "123456789");
+      dictionary.Add(Credential.UserDataType.Title, "LOL");
+      dictionary.Add(Credential.UserDataType.Website, "www.google.com");
+
+      Credential cred = new Credential(dictionary);
+
+      GUIEntryCreator entryCreator = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator2 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator3 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator4 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator5 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator6 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator7 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator8 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator9 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
+      GUIEntryCreator entryCreator0 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
     }
 
     private void panelInformation_MouseDown(object sender, MouseEventArgs e)
