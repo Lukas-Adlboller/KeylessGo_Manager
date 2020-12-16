@@ -29,6 +29,8 @@
     private void InitializeComponent()
     {
       this.panelInformation = new System.Windows.Forms.Panel();
+      this.bttnMinimize = new System.Windows.Forms.Button();
+      this.bttnExit = new System.Windows.Forms.Button();
       this.passwordEntryPanel = new System.Windows.Forms.Panel();
       this.buttonSoftwareInfo = new System.Windows.Forms.Button();
       this.buttonDeviceInfo = new System.Windows.Forms.Button();
@@ -39,26 +41,54 @@
       this.buttonSettings = new System.Windows.Forms.Button();
       this.buttonImportFile = new System.Windows.Forms.Button();
       this.buttonAddEntry = new System.Windows.Forms.Button();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.buttonExitProg = new System.Windows.Forms.Button();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.panelInformation.SuspendLayout();
       this.panel1.SuspendLayout();
       this.sideMenuePanel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       this.SuspendLayout();
       // 
       // panelInformation
       // 
       this.panelInformation.BackColor = System.Drawing.Color.White;
+      this.panelInformation.Controls.Add(this.bttnMinimize);
+      this.panelInformation.Controls.Add(this.bttnExit);
       this.panelInformation.Controls.Add(this.passwordEntryPanel);
       this.panelInformation.Controls.Add(this.buttonSoftwareInfo);
       this.panelInformation.Controls.Add(this.buttonDeviceInfo);
       this.panelInformation.Dock = System.Windows.Forms.DockStyle.Top;
       this.panelInformation.Location = new System.Drawing.Point(0, 0);
       this.panelInformation.Name = "panelInformation";
-      this.panelInformation.Size = new System.Drawing.Size(917, 65);
+      this.panelInformation.Size = new System.Drawing.Size(917, 37);
       this.panelInformation.TabIndex = 0;
       this.panelInformation.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelInformation_MouseDown);
+      // 
+      // bttnMinimize
+      // 
+      this.bttnMinimize.FlatAppearance.BorderSize = 0;
+      this.bttnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bttnMinimize.Image = global::KeylessGo_GUI.Properties.Resources.minimize_icon;
+      this.bttnMinimize.Location = new System.Drawing.Point(844, 4);
+      this.bttnMinimize.Name = "bttnMinimize";
+      this.bttnMinimize.Size = new System.Drawing.Size(30, 30);
+      this.bttnMinimize.TabIndex = 6;
+      this.bttnMinimize.UseVisualStyleBackColor = true;
+      this.bttnMinimize.Click += new System.EventHandler(this.bttnMinimize_Click);
+      // 
+      // bttnExit
+      // 
+      this.bttnExit.FlatAppearance.BorderSize = 0;
+      this.bttnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bttnExit.Image = global::KeylessGo_GUI.Properties.Resources.exit_icon;
+      this.bttnExit.Location = new System.Drawing.Point(880, 3);
+      this.bttnExit.Name = "bttnExit";
+      this.bttnExit.Size = new System.Drawing.Size(30, 30);
+      this.bttnExit.TabIndex = 5;
+      this.bttnExit.UseVisualStyleBackColor = true;
+      this.bttnExit.Click += new System.EventHandler(this.bttnExit_Click);
       // 
       // passwordEntryPanel
       // 
@@ -79,11 +109,11 @@
       this.buttonSoftwareInfo.ForeColor = System.Drawing.Color.Black;
       this.buttonSoftwareInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonSoftwareInfo.ImageKey = "(none)";
-      this.buttonSoftwareInfo.Location = new System.Drawing.Point(758, 32);
+      this.buttonSoftwareInfo.Location = new System.Drawing.Point(9, 7);
       this.buttonSoftwareInfo.Name = "buttonSoftwareInfo";
-      this.buttonSoftwareInfo.Size = new System.Drawing.Size(147, 23);
+      this.buttonSoftwareInfo.Size = new System.Drawing.Size(131, 23);
       this.buttonSoftwareInfo.TabIndex = 4;
-      this.buttonSoftwareInfo.Text = "App Version: 1.0";
+      this.buttonSoftwareInfo.Text = "App Version: 0.1";
       this.buttonSoftwareInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.buttonSoftwareInfo.UseVisualStyleBackColor = false;
       // 
@@ -98,9 +128,9 @@
       this.buttonDeviceInfo.ForeColor = System.Drawing.Color.Black;
       this.buttonDeviceInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonDeviceInfo.ImageKey = "(none)";
-      this.buttonDeviceInfo.Location = new System.Drawing.Point(758, 9);
+      this.buttonDeviceInfo.Location = new System.Drawing.Point(146, 7);
       this.buttonDeviceInfo.Name = "buttonDeviceInfo";
-      this.buttonDeviceInfo.Size = new System.Drawing.Size(147, 23);
+      this.buttonDeviceInfo.Size = new System.Drawing.Size(141, 23);
       this.buttonDeviceInfo.TabIndex = 3;
       this.buttonDeviceInfo.Text = "Device Version: 1.0";
       this.buttonDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -111,10 +141,10 @@
       this.entryFlowLayoutPanel.AutoScroll = true;
       this.entryFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.entryFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-      this.entryFlowLayoutPanel.Location = new System.Drawing.Point(0, 65);
+      this.entryFlowLayoutPanel.Location = new System.Drawing.Point(0, 37);
       this.entryFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
       this.entryFlowLayoutPanel.Name = "entryFlowLayoutPanel";
-      this.entryFlowLayoutPanel.Size = new System.Drawing.Size(917, 535);
+      this.entryFlowLayoutPanel.Size = new System.Drawing.Size(917, 563);
       this.entryFlowLayoutPanel.TabIndex = 2;
       this.entryFlowLayoutPanel.WrapContents = false;
       // 
@@ -133,11 +163,11 @@
       this.sideMenuePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
       this.sideMenuePanel.ColorBottom = System.Drawing.Color.Empty;
       this.sideMenuePanel.ColorTop = System.Drawing.Color.Empty;
+      this.sideMenuePanel.Controls.Add(this.pictureBox2);
       this.sideMenuePanel.Controls.Add(this.buttonSyncDevice);
       this.sideMenuePanel.Controls.Add(this.buttonSettings);
       this.sideMenuePanel.Controls.Add(this.buttonImportFile);
       this.sideMenuePanel.Controls.Add(this.buttonAddEntry);
-      this.sideMenuePanel.Controls.Add(this.pictureBox1);
       this.sideMenuePanel.Controls.Add(this.buttonExitProg);
       this.sideMenuePanel.Dock = System.Windows.Forms.DockStyle.Left;
       this.sideMenuePanel.Location = new System.Drawing.Point(0, 0);
@@ -160,8 +190,9 @@
       this.buttonSyncDevice.Name = "buttonSyncDevice";
       this.buttonSyncDevice.Size = new System.Drawing.Size(179, 41);
       this.buttonSyncDevice.TabIndex = 5;
-      this.buttonSyncDevice.Text = "Sync With Device";
-      this.buttonSyncDevice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonSyncDevice.Text = "  Sync With Device";
+      this.buttonSyncDevice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonSyncDevice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonSyncDevice.UseVisualStyleBackColor = false;
       // 
       // buttonSettings
@@ -179,8 +210,9 @@
       this.buttonSettings.Name = "buttonSettings";
       this.buttonSettings.Size = new System.Drawing.Size(179, 41);
       this.buttonSettings.TabIndex = 4;
-      this.buttonSettings.Text = "Device Settings";
-      this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonSettings.Text = "  Device Settings";
+      this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonSettings.UseVisualStyleBackColor = false;
       // 
       // buttonImportFile
@@ -198,9 +230,11 @@
       this.buttonImportFile.Name = "buttonImportFile";
       this.buttonImportFile.Size = new System.Drawing.Size(179, 41);
       this.buttonImportFile.TabIndex = 3;
-      this.buttonImportFile.Text = "Import From File";
-      this.buttonImportFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonImportFile.Text = "  Import From File";
+      this.buttonImportFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonImportFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonImportFile.UseVisualStyleBackColor = false;
+      this.buttonImportFile.Click += new System.EventHandler(this.buttonImportFile_Click);
       // 
       // buttonAddEntry
       // 
@@ -217,20 +251,11 @@
       this.buttonAddEntry.Name = "buttonAddEntry";
       this.buttonAddEntry.Size = new System.Drawing.Size(179, 41);
       this.buttonAddEntry.TabIndex = 2;
-      this.buttonAddEntry.Text = "Add New Entry";
-      this.buttonAddEntry.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonAddEntry.Text = "  Add New Entry";
+      this.buttonAddEntry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonAddEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonAddEntry.UseVisualStyleBackColor = false;
-      // 
-      // pictureBox1
-      // 
-      this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-      this.pictureBox1.Image = global::KeylessGo_GUI.Properties.Resources.sample_logo;
-      this.pictureBox1.Location = new System.Drawing.Point(9, 7);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(182, 45);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.pictureBox1.TabIndex = 1;
-      this.pictureBox1.TabStop = false;
+      this.buttonAddEntry.Click += new System.EventHandler(this.buttonAddEntry_Click);
       // 
       // buttonExitProg
       // 
@@ -247,10 +272,33 @@
       this.buttonExitProg.Name = "buttonExitProg";
       this.buttonExitProg.Size = new System.Drawing.Size(179, 41);
       this.buttonExitProg.TabIndex = 0;
-      this.buttonExitProg.Text = "Exit Application";
-      this.buttonExitProg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.buttonExitProg.Text = "  About Us";
+      this.buttonExitProg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonExitProg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonExitProg.UseVisualStyleBackColor = false;
       this.buttonExitProg.Click += new System.EventHandler(this.buttonExitProg_Click);
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+      this.pictureBox1.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
+      this.pictureBox1.Location = new System.Drawing.Point(9, 7);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(182, 45);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.pictureBox1.TabIndex = 1;
+      this.pictureBox1.TabStop = false;
+      // 
+      // pictureBox2
+      // 
+      this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+      this.pictureBox2.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
+      this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.Size = new System.Drawing.Size(191, 50);
+      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.pictureBox2.TabIndex = 6;
+      this.pictureBox2.TabStop = false;
       // 
       // MainForm
       // 
@@ -270,6 +318,7 @@
       this.panel1.ResumeLayout(false);
       this.sideMenuePanel.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -289,6 +338,9 @@
     private System.Windows.Forms.Panel passwordEntryPanel;
     private System.Windows.Forms.FlowLayoutPanel entryFlowLayoutPanel;
     private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Button bttnExit;
+    private System.Windows.Forms.Button bttnMinimize;
+    private System.Windows.Forms.PictureBox pictureBox2;
   }
 }
 

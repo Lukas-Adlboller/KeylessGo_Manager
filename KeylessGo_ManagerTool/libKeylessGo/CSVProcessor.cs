@@ -48,6 +48,11 @@ namespace libKeylessGo
 
       for (int index = 1; index < stringTable.Count; index++)
       {
+        if(stringTable[index].All(x => string.IsNullOrEmpty(x)))
+        {
+          continue;
+        }
+
         Dictionary<Credential.UserDataType, string> dictionary = 
           new Dictionary<Credential.UserDataType, string>();
 

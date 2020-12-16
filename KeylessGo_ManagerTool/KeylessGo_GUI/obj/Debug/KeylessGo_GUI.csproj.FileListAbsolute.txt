@@ -40,3 +40,4 @@ C:\Users\lukas\Desktop\KeylessGo_Manager\KeylessGo_ManagerTool\KeylessGo_GUI\obj
 C:\Users\lukas\Desktop\KeylessGo_Manager\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.csproj.CopyComplete
 C:\Users\lukas\Desktop\KeylessGo_Manager\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.exe
 C:\Users\lukas\Desktop\KeylessGo_Manager\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.pdb
+C:\Users\lukas\Desktop\KeylessGo_Manager\KeylessGo_ManagerTool\KeylessGo_GUI\obj\Debug\KeylessGo_GUI.EditEntryDialog.resources

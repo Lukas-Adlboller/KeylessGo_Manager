@@ -63,6 +63,16 @@ namespace KeylessGo_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap about_icon {
+            get {
+                object obj = ResourceManager.GetObject("about_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_entry_icon {
             get {
                 object obj = ResourceManager.GetObject("add_entry_icon", resourceCulture);
@@ -103,9 +113,29 @@ namespace KeylessGo_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exit_icon {
+            get {
+                object obj = ResourceManager.GetObject("exit_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_program_icon {
             get {
                 object obj = ResourceManager.GetObject("exit_program_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fast_ein_logo {
+            get {
+                object obj = ResourceManager.GetObject("fast_ein_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +153,9 @@ namespace KeylessGo_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sample_logo {
+        internal static System.Drawing.Bitmap minimize_icon {
             get {
-                object obj = ResourceManager.GetObject("sample_logo", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

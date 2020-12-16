@@ -32,9 +32,12 @@ namespace KeylessGo_GUI
       int nHeightEllispe
     );
 
+    public Dictionary<GUIEntryCreator, Credential> userPasswordDictionary;
+
     public MainForm()
     {
       InitializeComponent();
+      userPasswordDictionary = new Dictionary<GUIEntryCreator, Credential>();
     }
 
     private void MainForm_Load(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace KeylessGo_GUI
       sideMenuePanel.ColorBottom = Color.FromArgb(72, 198, 239);
 
       // Button Icons
-      buttonExitProg.Image = KeylessGo_GUI.Properties.Resources.exit_program_icon;
+      buttonExitProg.Image = KeylessGo_GUI.Properties.Resources.about_icon;
       buttonAddEntry.Image = KeylessGo_GUI.Properties.Resources.add_entry_icon;
       buttonImportFile.Image = KeylessGo_GUI.Properties.Resources.import_file_icon;
       buttonSyncDevice.Image = KeylessGo_GUI.Properties.Resources.sync_icon;
@@ -58,26 +61,6 @@ namespace KeylessGo_GUI
 
       // FlowLayoutPanel
       entryFlowLayoutPanel.HorizontalScroll.Visible = false;
-
-      // Test & Debug
-      Dictionary<Credential.UserDataType, string> dictionary = new Dictionary<Credential.UserDataType, string>();
-      dictionary.Add(Credential.UserDataType.Login, "MinecraftGamer420");
-      dictionary.Add(Credential.UserDataType.Password, "123456789");
-      dictionary.Add(Credential.UserDataType.Title, "LOL");
-      dictionary.Add(Credential.UserDataType.Website, "www.google.com");
-
-      Credential cred = new Credential(dictionary);
-
-      GUIEntryCreator entryCreator = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator2 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator3 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator4 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator5 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator6 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator7 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator8 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator9 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
-      GUIEntryCreator entryCreator0 = new GUIEntryCreator(entryFlowLayoutPanel, cred);
     }
 
     private void panelInformation_MouseDown(object sender, MouseEventArgs e)
@@ -89,9 +72,76 @@ namespace KeylessGo_GUI
       }
     }
 
-    private void buttonExitProg_Click(object sender, EventArgs e)
+    private void bttnExit_Click(object sender, EventArgs e)
     {
       Environment.Exit(0);
+    }
+
+    public void DeleteButton_OnMouseClick(object sender, MouseEventArgs e)
+    {
+      Panel panel = (Panel)((Button)sender).Parent;
+      GUIEntryCreator guiEntryCreator = userPasswordDictionary.Keys.First(x => x.entryPanel == panel);
+      entryFlowLayoutPanel.Controls.Remove(guiEntryCreator.entryPanel);
+      userPasswordDictionary.Remove(guiEntryCreator);
+    }
+
+    private void buttonImportFile_Click(object sender, EventArgs e)
+    {
+      using(OpenFileDialog openFileDialog = new OpenFileDialog())
+      {
+
+        openFileDialog.InitialDirectory = "C:\\";
+        openFileDialog.Filter = "Dashlane-Files (*.json)|*.json|KeePass-Files (*.csv)|*.csv";
+        openFileDialog.FilterIndex = 1;
+        
+        if(openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+          string filePath = openFileDialog.FileName;
+          List<Credential> userPasswords = new List<Credential>();
+          
+          switch(openFileDialog.FilterIndex)
+          {
+            case 1:
+              JSONProcessor jsonProcessor = new JSONProcessor(filePath);
+              userPasswords = jsonProcessor.ParseCredentialsFromFile().ToList();
+              break;
+            case 2:
+              CSVProcessor csvProcessor = new CSVProcessor(filePath);
+              userPasswords = csvProcessor.
+                ParseCredentialsFromFile(CSVProcessor.CSVFileFormat.KeePass, csvProcessor.GetStringTable()).ToList();
+              break;
+          }
+
+          if(userPasswords.Count == 0)
+          {
+            return;
+          }
+
+          foreach(Credential credential in userPasswords)
+          {
+            userPasswordDictionary.Add(new GUIEntryCreator(
+              entryFlowLayoutPanel, 
+              credential, 
+              new MouseEventHandler(DeleteButton_OnMouseClick)), credential);
+          }
+        }
+      }
+    }
+
+    private void bttnMinimize_Click(object sender, EventArgs e)
+    {
+      WindowState = FormWindowState.Minimized;
+    }
+
+    private void buttonAddEntry_Click(object sender, EventArgs e)
+    {
+      EditEntryDialog editEntryDialog = new EditEntryDialog();
+      editEntryDialog.ShowDialog();
+    }
+
+    private void buttonExitProg_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }

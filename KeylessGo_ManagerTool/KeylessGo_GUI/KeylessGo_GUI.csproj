@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditEntryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditEntryDialog.Designer.cs">
+      <DependentUpon>EditEntryDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditEntryDialog.resx">
+      <DependentUpon>EditEntryDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +128,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit_entry_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fast-ein-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
