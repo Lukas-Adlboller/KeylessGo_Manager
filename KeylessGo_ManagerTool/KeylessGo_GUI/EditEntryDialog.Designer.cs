@@ -137,17 +137,17 @@
       // 
       this.txtBoxPassword.Location = new System.Drawing.Point(108, 140);
       this.txtBoxPassword.Name = "txtBoxPassword";
-      this.txtBoxPassword.PasswordChar = '*';
       this.txtBoxPassword.Size = new System.Drawing.Size(216, 20);
       this.txtBoxPassword.TabIndex = 10;
+      this.txtBoxPassword.UseSystemPasswordChar = true;
       // 
       // txtBoxRepeat
       // 
       this.txtBoxRepeat.Location = new System.Drawing.Point(108, 166);
       this.txtBoxRepeat.Name = "txtBoxRepeat";
-      this.txtBoxRepeat.PasswordChar = '*';
       this.txtBoxRepeat.Size = new System.Drawing.Size(216, 20);
       this.txtBoxRepeat.TabIndex = 11;
+      this.txtBoxRepeat.UseSystemPasswordChar = true;
       // 
       // bttnShowHidePwd
       // 
@@ -158,6 +158,7 @@
       this.bttnShowHidePwd.TabIndex = 12;
       this.bttnShowHidePwd.Text = "Show / Hide";
       this.bttnShowHidePwd.UseVisualStyleBackColor = true;
+      this.bttnShowHidePwd.Click += new System.EventHandler(this.bttnShowHidePwd_Click);
       // 
       // bttnOk
       // 
@@ -205,6 +206,7 @@
       this.MaximizeBox = false;
       this.Name = "EditEntryDialog";
       this.Text = "Edit Password Entry";
+      this.Load += new System.EventHandler(this.EditEntryDialog_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 

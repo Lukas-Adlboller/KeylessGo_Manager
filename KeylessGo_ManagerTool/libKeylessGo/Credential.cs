@@ -6,7 +6,7 @@ namespace libKeylessGo
 {
   public class Credential
   {
-    public enum UserDataType { Title, Login, SecondaryLogin, Category, Password, Website };
+    public enum UserDataType { Title, Login, SecondaryLogin, Password, Website };
 
     private Dictionary<UserDataType, string> CredentialDataDictionary;
 
@@ -27,6 +27,15 @@ namespace libKeylessGo
       }
 
       CredentialDataDictionary = credentialDataDictionary;
+    }
+
+    /// <summary>
+    /// Constructor for Credentials
+    /// </summary>
+    /// <param name="credential">Credential data</param>
+    public Credential(Credential credential)
+    {
+      CredentialDataDictionary = new Dictionary<UserDataType, string>(credential.CredentialDataDictionary);
     }
 
     /// <summary>
@@ -67,6 +76,11 @@ namespace libKeylessGo
       return false;
     }
 
+    /// <summary>
+    /// Get Data from UserDataType
+    /// </summary>
+    /// <param name="userDataType">User Data Type</param>
+    /// <returns>returns data in form of a string</returns>
     public string GetData(UserDataType userDataType)
     {
       if(!CredentialDataDictionary.ContainsKey(userDataType))
@@ -75,6 +89,15 @@ namespace libKeylessGo
       }
 
       return CredentialDataDictionary[userDataType];
+    }
+
+    /// <summary>
+    /// Get all UserDataType keys
+    /// </summary>
+    /// <returns>List of UserDataTypes</returns>
+    public IEnumerable<UserDataType> GetKeys()
+    {
+      return CredentialDataDictionary.Keys;
     }
   }
 }

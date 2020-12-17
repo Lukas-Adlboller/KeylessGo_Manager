@@ -20,7 +20,14 @@ namespace KeylessGo_GUI
     public Button entryEdit;
     public Button entryDelete;
 
-    public GUIEntryCreator(Panel parent, Credential credentialInfo, MouseEventHandler mouseEventHandler)
+    /// <summary>
+    /// Constructor for GUIEntryCreator. Initializes all user controls.
+    /// </summary>
+    /// <param name="parent">Parent Panel (Control)</param>
+    /// <param name="credentialInfo">Credential data</param>
+    /// <param name="mouseDeleteEventHandler">Event Handler for delete button</param>
+    /// <param name="mouseEditEventHandler">Event Handler for edit button</param>
+    public GUIEntryCreator(Panel parent, Credential credentialInfo, MouseEventHandler mouseDeleteEventHandler, MouseEventHandler mouseEditEventHandler)
     {
       entryPanel = new Panel();
       entryPanel.Size = new Size(parent.Width - 17 , 80);
@@ -29,12 +36,19 @@ namespace KeylessGo_GUI
       entryPanel.Location = new Point(0, parent.Controls.Count * 80);
       entryPanel.Margin = new Padding(0, 3, 0, 0);
 
-      Initialize(credentialInfo, parent.Width, mouseEventHandler);
+      Initialize(credentialInfo, parent.Width, mouseDeleteEventHandler, mouseEditEventHandler);
 
       parent.Controls.Add(entryPanel);
     }
 
-    private void Initialize(Credential credentialInfo, int parentWidth, MouseEventHandler mouseEventHandler)
+    /// <summary>
+    /// Initialize all Controls and add them to the panel
+    /// </summary>
+    /// <param name="credentialInfo">Credential info</param>
+    /// <param name="parentWidth">Width of parent panel</param>
+    /// <param name="mouseDeleteEventHandler">Event Handler for delete button</param>
+    /// <param name="mouseEditeventHandler">Event Handler for edit button</param>
+    private void Initialize(Credential credentialInfo, int parentWidth, MouseEventHandler mouseDeleteEventHandler, MouseEventHandler mouseEditeventHandler)
     {
       // Entry Icon
       entryIcon = new PictureBox();
@@ -91,6 +105,7 @@ namespace KeylessGo_GUI
       entryEdit.Location = new Point(parentWidth - 107, 20);
       entryEdit.FlatStyle = FlatStyle.Flat;
       entryEdit.FlatAppearance.BorderSize = 0;
+      entryEdit.MouseClick += mouseEditeventHandler;
 
       // Edit Delete Button
       entryDelete = new Button();
@@ -100,7 +115,7 @@ namespace KeylessGo_GUI
       entryDelete.Location = new Point(parentWidth - 67, 20);
       entryDelete.FlatStyle = FlatStyle.Flat;
       entryDelete.FlatAppearance.BorderSize = 0;
-      entryDelete.MouseClick += mouseEventHandler;
+      entryDelete.MouseClick += mouseDeleteEventHandler;
 
       // Add Controls
       entryPanel.Controls.Add(entryIcon);

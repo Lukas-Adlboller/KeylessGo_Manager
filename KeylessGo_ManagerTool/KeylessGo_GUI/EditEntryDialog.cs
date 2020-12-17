@@ -21,6 +21,10 @@ namespace KeylessGo_GUI
       { 
         return userCredential; 
       }
+      set
+      {
+        userCredential = value;
+      }
     }
 
     public EditEntryDialog()
@@ -40,6 +44,56 @@ namespace KeylessGo_GUI
 
     private void bttnOk_Click(object sender, EventArgs e)
     {
+      Dictionary<Credential.UserDataType, string> userDataDictionary = new Dictionary<Credential.UserDataType, string>();
+
+      if(string.IsNullOrEmpty(txtBoxTitle.Text))
+      {
+        MessageBox.Show("Title has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      if(string.IsNullOrEmpty(txtBoxUsername.Text))
+      {
+        MessageBox.Show("Username has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      if (string.IsNullOrEmpty(txtBoxWebsite.Text))
+      {
+        MessageBox.Show("Website has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      if (string.IsNullOrEmpty(txtBoxPassword.Text))
+      {
+        MessageBox.Show("Password has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      if (string.IsNullOrEmpty(txtBoxRepeat.Text))
+      {
+        MessageBox.Show("Please repeat your Password!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      if(!string.Equals(txtBoxPassword.Text, txtBoxRepeat.Text))
+      {
+        MessageBox.Show("Repeated Password is not equal entered Password!", "Edit Entry Error", MessageBoxButtons.OK);
+        return;
+      }
+
+      userDataDictionary.Add(Credential.UserDataType.Title, txtBoxTitle.Text);
+      userDataDictionary.Add(Credential.UserDataType.Login, txtBoxUsername.Text);
+      userDataDictionary.Add(Credential.UserDataType.Website, txtBoxWebsite.Text);
+      userDataDictionary.Add(Credential.UserDataType.Password, txtBoxPassword.Text);
+
+      if(!string.IsNullOrEmpty(txtBoxEmail.Text))
+      {
+        userDataDictionary.Add(Credential.UserDataType.SecondaryLogin, txtBoxEmail.Text);
+      }
+
+      userCredential = new Credential(userDataDictionary);
+
       this.DialogResult = DialogResult.OK;
       this.Close();
     }
@@ -48,6 +102,40 @@ namespace KeylessGo_GUI
     {
       this.DialogResult = DialogResult.Cancel;
       this.Close();
+    }
+
+    private void bttnShowHidePwd_Click(object sender, EventArgs e)
+    {
+      txtBoxPassword.UseSystemPasswordChar = !txtBoxPassword.UseSystemPasswordChar;
+      txtBoxRepeat.UseSystemPasswordChar = !txtBoxRepeat.UseSystemPasswordChar;
+    }
+
+    private void EditEntryDialog_Load(object sender, EventArgs e)
+    {
+      if (userCredential != null)
+      {
+        foreach (Credential.UserDataType dataType in userCredential.GetKeys())
+        {
+          switch (dataType)
+          {
+            case Credential.UserDataType.Title:
+              txtBoxTitle.Text = userCredential.GetData(dataType);
+              break;
+            case Credential.UserDataType.Login:
+              txtBoxUsername.Text = userCredential.GetData(dataType);
+              break;
+            case Credential.UserDataType.SecondaryLogin:
+              txtBoxEmail.Text = userCredential.GetData(dataType);
+              break;
+            case Credential.UserDataType.Website:
+              txtBoxWebsite.Text = userCredential.GetData(dataType);
+              break;
+            case Credential.UserDataType.Password:
+              txtBoxPassword.Text = userCredential.GetData(dataType);
+              break;
+          }
+        }
+      }
     }
   }
 }

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using libKeylessGo;
@@ -85,6 +81,29 @@ namespace KeylessGo_GUI
       userPasswordDictionary.Remove(guiEntryCreator);
     }
 
+    public void EditButton_OnMouseClick(object sender, MouseEventArgs e)
+    {
+      Panel panel = (Panel)((Button)sender).Parent;
+      GUIEntryCreator guiEntryCreator = userPasswordDictionary.Keys.First(x => x.entryPanel == panel);
+
+      EditEntryDialog editEntryDialog = new EditEntryDialog();
+      editEntryDialog.UserCredential = userPasswordDictionary[guiEntryCreator];
+
+      if (editEntryDialog.ShowDialog() == DialogResult.OK)
+      {
+        Credential credential = new Credential(editEntryDialog.UserCredential);
+        userPasswordDictionary.Remove(guiEntryCreator);
+
+        entryFlowLayoutPanel.Controls.Remove(guiEntryCreator.entryPanel);
+
+        userPasswordDictionary.Add(new GUIEntryCreator(
+          entryFlowLayoutPanel,
+          credential,
+          new MouseEventHandler(DeleteButton_OnMouseClick),
+          new MouseEventHandler(EditButton_OnMouseClick)), credential);
+      }
+    }
+
     private void buttonImportFile_Click(object sender, EventArgs e)
     {
       using(OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -122,7 +141,8 @@ namespace KeylessGo_GUI
             userPasswordDictionary.Add(new GUIEntryCreator(
               entryFlowLayoutPanel, 
               credential, 
-              new MouseEventHandler(DeleteButton_OnMouseClick)), credential);
+              new MouseEventHandler(DeleteButton_OnMouseClick),
+              new MouseEventHandler(EditButton_OnMouseClick)), credential);
           }
         }
       }
@@ -136,12 +156,15 @@ namespace KeylessGo_GUI
     private void buttonAddEntry_Click(object sender, EventArgs e)
     {
       EditEntryDialog editEntryDialog = new EditEntryDialog();
-      editEntryDialog.ShowDialog();
-    }
-
-    private void buttonExitProg_Click(object sender, EventArgs e)
-    {
-
+      if(editEntryDialog.ShowDialog() == DialogResult.OK)
+      {
+        Credential credential = new Credential(editEntryDialog.UserCredential);
+        userPasswordDictionary.Add(new GUIEntryCreator(
+          entryFlowLayoutPanel, 
+          credential,
+          new MouseEventHandler(DeleteButton_OnMouseClick),
+          new MouseEventHandler(EditButton_OnMouseClick)), credential);
+      }
     }
   }
 }

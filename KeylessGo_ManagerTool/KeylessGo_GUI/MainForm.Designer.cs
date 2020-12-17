@@ -37,18 +37,18 @@
       this.entryFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
       this.panel1 = new System.Windows.Forms.Panel();
       this.sideMenuePanel = new KeylessGo_GUI.GradientPanel();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.buttonSyncDevice = new System.Windows.Forms.Button();
       this.buttonSettings = new System.Windows.Forms.Button();
       this.buttonImportFile = new System.Windows.Forms.Button();
       this.buttonAddEntry = new System.Windows.Forms.Button();
       this.buttonExitProg = new System.Windows.Forms.Button();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.panelInformation.SuspendLayout();
       this.panel1.SuspendLayout();
       this.sideMenuePanel.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // panelInformation
@@ -175,6 +175,17 @@
       this.sideMenuePanel.Size = new System.Drawing.Size(200, 600);
       this.sideMenuePanel.TabIndex = 1;
       // 
+      // pictureBox2
+      // 
+      this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+      this.pictureBox2.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
+      this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.Size = new System.Drawing.Size(191, 50);
+      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.pictureBox2.TabIndex = 6;
+      this.pictureBox2.TabStop = false;
+      // 
       // buttonSyncDevice
       // 
       this.buttonSyncDevice.BackColor = System.Drawing.Color.Transparent;
@@ -276,7 +287,6 @@
       this.buttonExitProg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonExitProg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonExitProg.UseVisualStyleBackColor = false;
-      this.buttonExitProg.Click += new System.EventHandler(this.buttonExitProg_Click);
       // 
       // pictureBox1
       // 
@@ -288,17 +298,6 @@
       this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.pictureBox1.TabIndex = 1;
       this.pictureBox1.TabStop = false;
-      // 
-      // pictureBox2
-      // 
-      this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-      this.pictureBox2.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
-      this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-      this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new System.Drawing.Size(191, 50);
-      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.pictureBox2.TabIndex = 6;
-      this.pictureBox2.TabStop = false;
       // 
       // MainForm
       // 
@@ -317,8 +316,8 @@
       this.panelInformation.ResumeLayout(false);
       this.panel1.ResumeLayout(false);
       this.sideMenuePanel.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
 
     }
