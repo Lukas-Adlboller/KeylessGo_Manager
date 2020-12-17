@@ -36,6 +36,8 @@
       this.buttonDeviceInfo = new System.Windows.Forms.Button();
       this.entryFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.lblPlaceholder = new System.Windows.Forms.Label();
       this.sideMenuePanel = new KeylessGo_GUI.GradientPanel();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.buttonSyncDevice = new System.Windows.Forms.Button();
@@ -43,12 +45,12 @@
       this.buttonImportFile = new System.Windows.Forms.Button();
       this.buttonAddEntry = new System.Windows.Forms.Button();
       this.buttonExitProg = new System.Windows.Forms.Button();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.panelInformation.SuspendLayout();
+      this.entryFlowLayoutPanel.SuspendLayout();
       this.panel1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.sideMenuePanel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // panelInformation
@@ -139,6 +141,7 @@
       // entryFlowLayoutPanel
       // 
       this.entryFlowLayoutPanel.AutoScroll = true;
+      this.entryFlowLayoutPanel.Controls.Add(this.lblPlaceholder);
       this.entryFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.entryFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
       this.entryFlowLayoutPanel.Location = new System.Drawing.Point(0, 37);
@@ -157,6 +160,28 @@
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(917, 600);
       this.panel1.TabIndex = 2;
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+      this.pictureBox1.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
+      this.pictureBox1.Location = new System.Drawing.Point(9, 7);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(182, 45);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.pictureBox1.TabIndex = 1;
+      this.pictureBox1.TabStop = false;
+      // 
+      // lblPlaceholder
+      // 
+      this.lblPlaceholder.AutoSize = true;
+      this.lblPlaceholder.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblPlaceholder.Location = new System.Drawing.Point(350, 250);
+      this.lblPlaceholder.Margin = new System.Windows.Forms.Padding(350, 250, 3, 0);
+      this.lblPlaceholder.Name = "lblPlaceholder";
+      this.lblPlaceholder.Size = new System.Drawing.Size(226, 29);
+      this.lblPlaceholder.TabIndex = 0;
+      this.lblPlaceholder.Text = "  Nothing to see here...";
       // 
       // sideMenuePanel
       // 
@@ -288,17 +313,6 @@
       this.buttonExitProg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonExitProg.UseVisualStyleBackColor = false;
       // 
-      // pictureBox1
-      // 
-      this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-      this.pictureBox1.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
-      this.pictureBox1.Location = new System.Drawing.Point(9, 7);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(182, 45);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.pictureBox1.TabIndex = 1;
-      this.pictureBox1.TabStop = false;
-      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,10 +328,12 @@
       this.Text = "KeylessGo Manager Tool";
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.panelInformation.ResumeLayout(false);
+      this.entryFlowLayoutPanel.ResumeLayout(false);
+      this.entryFlowLayoutPanel.PerformLayout();
       this.panel1.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.sideMenuePanel.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -340,6 +356,7 @@
     private System.Windows.Forms.Button bttnExit;
     private System.Windows.Forms.Button bttnMinimize;
     private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.Label lblPlaceholder;
   }
 }
 

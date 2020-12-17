@@ -79,6 +79,11 @@ namespace KeylessGo_GUI
       GUIEntryCreator guiEntryCreator = userPasswordDictionary.Keys.First(x => x.entryPanel == panel);
       entryFlowLayoutPanel.Controls.Remove(guiEntryCreator.entryPanel);
       userPasswordDictionary.Remove(guiEntryCreator);
+
+      if(userPasswordDictionary.Count == 0)
+      {
+        lblPlaceholder.Visible = true;
+      }
     }
 
     public void EditButton_OnMouseClick(object sender, MouseEventArgs e)
@@ -164,6 +169,11 @@ namespace KeylessGo_GUI
           credential,
           new MouseEventHandler(DeleteButton_OnMouseClick),
           new MouseEventHandler(EditButton_OnMouseClick)), credential);
+      }
+
+      if(userPasswordDictionary.Count != 0)
+      {
+        lblPlaceholder.Visible = false;
       }
     }
   }
