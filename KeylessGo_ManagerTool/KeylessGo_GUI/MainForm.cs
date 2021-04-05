@@ -7,7 +7,10 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+
 using libKeylessGo;
+using System.Management;
+using System.Text.RegularExpressions;
 
 namespace KeylessGo_GUI
 {
@@ -34,6 +37,14 @@ namespace KeylessGo_GUI
     NACK = 0x15
   }
 
+  struct ComPort // custom struct with our desired values
+  {
+    public string name;
+    public string vid;
+    public string pid;
+    public string description;
+  }
+
   public partial class MainForm : Form
   {
     public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -58,12 +69,24 @@ namespace KeylessGo_GUI
     public static Credential credentialQueue;
     public static SerialPort serialPort;
 
+    private const string vidPattern = @"VID_([0-9A-F]{4})";
+    private const string pidPattern = @"PID_([0-9A-F]{4})";
+
     public MainForm()
     {
       InitializeComponent();
-      userPasswordDictionary = new Dictionary<GUIEntryCreator, Credential>();
 
-      serialPort = new SerialPort("COM11", 9600);
+      List<ComPort> ports = GetSerialPorts();
+      ComPort com = ports.FindLast(c => c.vid.Equals("2341") && c.pid.Equals("8036"));
+
+      if(com.name == null)
+      {
+        MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        Environment.Exit(-1);
+      }
+
+      userPasswordDictionary = new Dictionary<GUIEntryCreator, Credential>();
+      serialPort = new SerialPort(com.name, 9600);
       serialPort.Parity = Parity.None;
       serialPort.DataBits = 8;
       serialPort.StopBits = StopBits.One;
@@ -76,13 +99,13 @@ namespace KeylessGo_GUI
         
         if(!serialPort.IsOpen)
         {
-          MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          MessageBox.Show("Could not connect to device!", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
           Environment.Exit(-1);
         }
       }
       catch (IOException ex)
       {
-        MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        MessageBox.Show("Could not connect to device!", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
         Environment.Exit(-1);
       }
     }
@@ -108,6 +131,33 @@ namespace KeylessGo_GUI
 
       // FlowLayoutPanel
       entryFlowLayoutPanel.HorizontalScroll.Visible = false;
+    }
+
+    private static List<ComPort> GetSerialPorts()
+    {
+      using (var searcher = new ManagementObjectSearcher
+          ("SELECT * FROM WIN32_SerialPort"))
+      {
+        var ports = searcher.Get().Cast<ManagementBaseObject>().ToList();
+        return ports.Select(p =>
+        {
+          ComPort c = new ComPort();
+          c.name = p.GetPropertyValue("DeviceID").ToString();
+          c.vid = p.GetPropertyValue("PNPDeviceID").ToString();
+          c.description = p.GetPropertyValue("Caption").ToString();
+
+          Match mVID = Regex.Match(c.vid, vidPattern, RegexOptions.IgnoreCase);
+          Match mPID = Regex.Match(c.vid, pidPattern, RegexOptions.IgnoreCase);
+
+          if (mVID.Success)
+            c.vid = mVID.Groups[1].Value;
+          if (mPID.Success)
+            c.pid = mPID.Groups[1].Value;
+
+          return c;
+
+        }).ToList();
+      }
     }
 
     public static bool isValidCommand(byte[] data)
