@@ -45,7 +45,7 @@
       this.buttonSettings = new System.Windows.Forms.Button();
       this.buttonImportFile = new System.Windows.Forms.Button();
       this.buttonAddEntry = new System.Windows.Forms.Button();
-      this.buttonExitProg = new System.Windows.Forms.Button();
+      this.buttonAbout = new System.Windows.Forms.Button();
       this.panelInformation.SuspendLayout();
       this.entryFlowLayoutPanel.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -116,7 +116,7 @@
       this.buttonSoftwareInfo.Name = "buttonSoftwareInfo";
       this.buttonSoftwareInfo.Size = new System.Drawing.Size(131, 23);
       this.buttonSoftwareInfo.TabIndex = 4;
-      this.buttonSoftwareInfo.Text = "App Version: 0.1";
+      this.buttonSoftwareInfo.Text = "App Version: 1.0";
       this.buttonSoftwareInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.buttonSoftwareInfo.UseVisualStyleBackColor = false;
       // 
@@ -135,7 +135,7 @@
       this.buttonDeviceInfo.Name = "buttonDeviceInfo";
       this.buttonDeviceInfo.Size = new System.Drawing.Size(141, 23);
       this.buttonDeviceInfo.TabIndex = 3;
-      this.buttonDeviceInfo.Text = "Device Version: 1.0";
+      this.buttonDeviceInfo.Text = "Device Version: 1.1";
       this.buttonDeviceInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.buttonDeviceInfo.UseVisualStyleBackColor = false;
       // 
@@ -194,7 +194,7 @@
       this.sideMenuePanel.Controls.Add(this.buttonSettings);
       this.sideMenuePanel.Controls.Add(this.buttonImportFile);
       this.sideMenuePanel.Controls.Add(this.buttonAddEntry);
-      this.sideMenuePanel.Controls.Add(this.buttonExitProg);
+      this.sideMenuePanel.Controls.Add(this.buttonAbout);
       this.sideMenuePanel.Dock = System.Windows.Forms.DockStyle.Left;
       this.sideMenuePanel.Location = new System.Drawing.Point(0, 0);
       this.sideMenuePanel.Name = "sideMenuePanel";
@@ -252,6 +252,7 @@
       this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonSettings.UseVisualStyleBackColor = false;
+      this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
       // 
       // buttonImportFile
       // 
@@ -295,25 +296,26 @@
       this.buttonAddEntry.UseVisualStyleBackColor = false;
       this.buttonAddEntry.Click += new System.EventHandler(this.buttonAddEntry_Click);
       // 
-      // buttonExitProg
+      // buttonAbout
       // 
-      this.buttonExitProg.BackColor = System.Drawing.Color.Transparent;
-      this.buttonExitProg.FlatAppearance.BorderSize = 0;
-      this.buttonExitProg.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-      this.buttonExitProg.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-      this.buttonExitProg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.buttonExitProg.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonExitProg.ForeColor = System.Drawing.Color.White;
-      this.buttonExitProg.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.buttonExitProg.ImageKey = "(none)";
-      this.buttonExitProg.Location = new System.Drawing.Point(12, 547);
-      this.buttonExitProg.Name = "buttonExitProg";
-      this.buttonExitProg.Size = new System.Drawing.Size(179, 41);
-      this.buttonExitProg.TabIndex = 0;
-      this.buttonExitProg.Text = "  About Us";
-      this.buttonExitProg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.buttonExitProg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-      this.buttonExitProg.UseVisualStyleBackColor = false;
+      this.buttonAbout.BackColor = System.Drawing.Color.Transparent;
+      this.buttonAbout.FlatAppearance.BorderSize = 0;
+      this.buttonAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+      this.buttonAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+      this.buttonAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.buttonAbout.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonAbout.ForeColor = System.Drawing.Color.White;
+      this.buttonAbout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonAbout.ImageKey = "(none)";
+      this.buttonAbout.Location = new System.Drawing.Point(12, 547);
+      this.buttonAbout.Name = "buttonAbout";
+      this.buttonAbout.Size = new System.Drawing.Size(179, 41);
+      this.buttonAbout.TabIndex = 0;
+      this.buttonAbout.Text = "  About Us";
+      this.buttonAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.buttonAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.buttonAbout.UseVisualStyleBackColor = false;
+      this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
       // 
       // MainForm
       // 
@@ -346,7 +348,7 @@
 
     private System.Windows.Forms.Panel panelInformation;
     private GradientPanel sideMenuePanel;
-    private System.Windows.Forms.Button buttonExitProg;
+    private System.Windows.Forms.Button buttonAbout;
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.Button buttonAddEntry;
     private System.Windows.Forms.Button buttonImportFile;

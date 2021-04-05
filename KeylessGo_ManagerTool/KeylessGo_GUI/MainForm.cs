@@ -120,7 +120,7 @@ namespace KeylessGo_GUI
       sideMenuePanel.ColorBottom = Color.FromArgb(72, 198, 239);
 
       // Button Icons
-      buttonExitProg.Image = KeylessGo_GUI.Properties.Resources.about_icon;
+      buttonAbout.Image = KeylessGo_GUI.Properties.Resources.about_icon;
       buttonAddEntry.Image = KeylessGo_GUI.Properties.Resources.add_entry_icon;
       buttonImportFile.Image = KeylessGo_GUI.Properties.Resources.import_file_icon;
       buttonSyncDevice.Image = KeylessGo_GUI.Properties.Resources.sync_icon;
@@ -493,6 +493,16 @@ namespace KeylessGo_GUI
       };
 
       serialPort.Write(command, 0, 3);
+    }
+
+    private void buttonAbout_Click(object sender, EventArgs e)
+    {
+      System.Diagnostics.Process.Start("https://schueler.bulme.at/~erik.hoermann");
+    }
+
+    private void buttonSettings_Click(object sender, EventArgs e)
+    {
+      MessageBox.Show("This feature is not implemented yet.", "KeylessGo Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
   }
 }
