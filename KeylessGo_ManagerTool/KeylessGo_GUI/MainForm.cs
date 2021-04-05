@@ -76,13 +76,13 @@ namespace KeylessGo_GUI
         
         if(!serialPort.IsOpen)
         {
-          MessageBox.Show("Serial COM Port could not be opened!", "Serial COM Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
           Environment.Exit(-1);
         }
       }
       catch (IOException ex)
       {
-        MessageBox.Show("Serial COM Port could not be opened!", "Serial COM Port Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
         Environment.Exit(-1);
       }
     }
@@ -139,6 +139,12 @@ namespace KeylessGo_GUI
       {
         return;
       }
+
+      if(byteData.Length == 0)
+      {
+        return;
+      }
+
 
       if(byteData[0] == (byte)SerialCommandLimiter.NACK)
       {
@@ -323,7 +329,7 @@ namespace KeylessGo_GUI
         command[0] = (byte)SerialCommandLimiter.COMM_BEGIN;
         command[1] = (byte)SerialCommand.COMM_EDIT_ACC;
         command[2] = (byte)((entryId & 0xFF00) >> 8);
-        command[3] = (byte)(entryId & 0xFF00);
+        command[3] = (byte)(entryId & 0xFF);
         command[4] = (byte)SerialCommandLimiter.US;
 
         int commandIdx = 5;
