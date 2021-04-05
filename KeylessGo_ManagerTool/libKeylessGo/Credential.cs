@@ -6,7 +6,7 @@ namespace libKeylessGo
 {
   public class Credential
   {
-    public enum UserDataType { Title, Login, SecondaryLogin, Password, Website };
+    public enum UserDataType { Id, Title, Email, Username, Password, Website };
 
     private Dictionary<UserDataType, string> CredentialDataDictionary;
 
@@ -66,7 +66,7 @@ namespace libKeylessGo
     /// <returns>True if everything that is needed is existing. False if not.</returns>
     private bool CheckNeededData(IEnumerable<UserDataType> dataTypes)
     {
-      if(dataTypes.Contains(UserDataType.Login) && 
+      if(dataTypes.Contains(UserDataType.Email) && 
         dataTypes.Contains(UserDataType.Password) && 
         dataTypes.Contains(UserDataType.Title))
       {

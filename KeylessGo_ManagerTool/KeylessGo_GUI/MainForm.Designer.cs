@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       this.panelInformation = new System.Windows.Forms.Panel();
       this.bttnMinimize = new System.Windows.Forms.Button();
       this.bttnExit = new System.Windows.Forms.Button();
@@ -35,9 +36,9 @@
       this.buttonSoftwareInfo = new System.Windows.Forms.Button();
       this.buttonDeviceInfo = new System.Windows.Forms.Button();
       this.entryFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+      this.lblPlaceholder = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.lblPlaceholder = new System.Windows.Forms.Label();
       this.sideMenuePanel = new KeylessGo_GUI.GradientPanel();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.buttonSyncDevice = new System.Windows.Forms.Button();
@@ -151,6 +152,17 @@
       this.entryFlowLayoutPanel.TabIndex = 2;
       this.entryFlowLayoutPanel.WrapContents = false;
       // 
+      // lblPlaceholder
+      // 
+      this.lblPlaceholder.AutoSize = true;
+      this.lblPlaceholder.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblPlaceholder.Location = new System.Drawing.Point(350, 250);
+      this.lblPlaceholder.Margin = new System.Windows.Forms.Padding(350, 250, 3, 0);
+      this.lblPlaceholder.Name = "lblPlaceholder";
+      this.lblPlaceholder.Size = new System.Drawing.Size(226, 29);
+      this.lblPlaceholder.TabIndex = 0;
+      this.lblPlaceholder.Text = "  Nothing to see here...";
+      // 
       // panel1
       // 
       this.panel1.Controls.Add(this.entryFlowLayoutPanel);
@@ -172,17 +184,6 @@
       this.pictureBox1.TabIndex = 1;
       this.pictureBox1.TabStop = false;
       // 
-      // lblPlaceholder
-      // 
-      this.lblPlaceholder.AutoSize = true;
-      this.lblPlaceholder.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblPlaceholder.Location = new System.Drawing.Point(350, 250);
-      this.lblPlaceholder.Margin = new System.Windows.Forms.Padding(350, 250, 3, 0);
-      this.lblPlaceholder.Name = "lblPlaceholder";
-      this.lblPlaceholder.Size = new System.Drawing.Size(226, 29);
-      this.lblPlaceholder.TabIndex = 0;
-      this.lblPlaceholder.Text = "  Nothing to see here...";
-      // 
       // sideMenuePanel
       // 
       this.sideMenuePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -203,10 +204,10 @@
       // pictureBox2
       // 
       this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-      this.pictureBox2.Image = global::KeylessGo_GUI.Properties.Resources.fast_ein_logo;
-      this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+      this.pictureBox2.Image = global::KeylessGo_GUI.Properties.Resources.logo;
+      this.pictureBox2.Location = new System.Drawing.Point(3, 7);
       this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new System.Drawing.Size(191, 50);
+      this.pictureBox2.Size = new System.Drawing.Size(191, 88);
       this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.pictureBox2.TabIndex = 6;
       this.pictureBox2.TabStop = false;
@@ -230,6 +231,7 @@
       this.buttonSyncDevice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       this.buttonSyncDevice.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
       this.buttonSyncDevice.UseVisualStyleBackColor = false;
+      this.buttonSyncDevice.Click += new System.EventHandler(this.buttonSyncDevice_Click);
       // 
       // buttonSettings
       // 
@@ -321,11 +323,13 @@
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.sideMenuePanel);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "MainForm";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "KeylessGo Manager Tool";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.panelInformation.ResumeLayout(false);
       this.entryFlowLayoutPanel.ResumeLayout(false);

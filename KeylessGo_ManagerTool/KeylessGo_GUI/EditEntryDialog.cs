@@ -82,14 +82,20 @@ namespace KeylessGo_GUI
         return;
       }
 
+      if(userCredential != null)
+      {
+        userDataDictionary.Add(Credential.UserDataType.Id, userCredential.GetData(Credential.UserDataType.Id));
+      }
+      
       userDataDictionary.Add(Credential.UserDataType.Title, txtBoxTitle.Text);
-      userDataDictionary.Add(Credential.UserDataType.Login, txtBoxUsername.Text);
+      userDataDictionary.Add(Credential.UserDataType.Email, txtBoxEmail.Text);
       userDataDictionary.Add(Credential.UserDataType.Website, txtBoxWebsite.Text);
       userDataDictionary.Add(Credential.UserDataType.Password, txtBoxPassword.Text);
 
       if(!string.IsNullOrEmpty(txtBoxEmail.Text))
       {
-        userDataDictionary.Add(Credential.UserDataType.SecondaryLogin, txtBoxEmail.Text);
+        
+        userDataDictionary.Add(Credential.UserDataType.Username, txtBoxUsername.Text);
       }
 
       userCredential = new Credential(userDataDictionary);
@@ -121,11 +127,11 @@ namespace KeylessGo_GUI
             case Credential.UserDataType.Title:
               txtBoxTitle.Text = userCredential.GetData(dataType);
               break;
-            case Credential.UserDataType.Login:
-              txtBoxUsername.Text = userCredential.GetData(dataType);
-              break;
-            case Credential.UserDataType.SecondaryLogin:
+            case Credential.UserDataType.Email:
               txtBoxEmail.Text = userCredential.GetData(dataType);
+              break;
+            case Credential.UserDataType.Username:
+              txtBoxUsername.Text = userCredential.GetData(dataType);
               break;
             case Credential.UserDataType.Website:
               txtBoxWebsite.Text = userCredential.GetData(dataType);

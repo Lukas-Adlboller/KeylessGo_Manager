@@ -99,7 +99,7 @@ namespace libKeylessGo
             dataType = Credential.UserDataType.Title;
             break;
           case "Login Name":
-            dataType = Credential.UserDataType.Login;
+            dataType = Credential.UserDataType.Email;
             break;
           case "Password":
             dataType = Credential.UserDataType.Password;

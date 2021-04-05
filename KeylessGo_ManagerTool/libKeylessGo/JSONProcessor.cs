@@ -71,11 +71,11 @@ namespace libKeylessGo
         Dictionary<Credential.UserDataType, string> dictionary =
           new Dictionary<Credential.UserDataType, string>();
 
-        dictionary.Add(Credential.UserDataType.Login, data.Login);
+        dictionary.Add(Credential.UserDataType.Username, data.Login);
         
         if(!string.IsNullOrEmpty(data.SecondaryLogin))
         {
-          dictionary.Add(Credential.UserDataType.SecondaryLogin, data.Email);
+          dictionary.Add(Credential.UserDataType.Email, data.Email);
         }
 
         dictionary.Add(Credential.UserDataType.Title, data.Title);

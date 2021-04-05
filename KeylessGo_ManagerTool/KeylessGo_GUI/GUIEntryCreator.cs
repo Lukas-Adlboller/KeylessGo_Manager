@@ -66,7 +66,7 @@ namespace KeylessGo_GUI
       // Entry Username
       entryUsername = new Label();
       entryUsername.Font = new Font("Calibri", 12, FontStyle.Regular);
-      entryUsername.Text = string.Format("Username: {0}", credentialInfo.GetData(Credential.UserDataType.Login));
+      entryUsername.Text = string.Format("Username: {0}", credentialInfo.GetData(Credential.UserDataType.Username));
       entryUsername.Location = new Point(260, 20);
       entryUsername.AutoSize = true;
 
