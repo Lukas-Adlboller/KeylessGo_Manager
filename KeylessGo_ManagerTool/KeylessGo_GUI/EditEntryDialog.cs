@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using libKeylessGo;
 
@@ -52,9 +46,9 @@ namespace KeylessGo_GUI
         return;
       }
 
-      if(string.IsNullOrEmpty(txtBoxUsername.Text))
+      if(string.IsNullOrEmpty(txtBoxPrimary.Text))
       {
-        MessageBox.Show("Username has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+        MessageBox.Show("Primary Login has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
         return;
       }
 
@@ -88,14 +82,14 @@ namespace KeylessGo_GUI
       }
       
       userDataDictionary.Add(Credential.UserDataType.Title, txtBoxTitle.Text);
-      userDataDictionary.Add(Credential.UserDataType.Email, txtBoxEmail.Text);
+      userDataDictionary.Add(Credential.UserDataType.Email, txtBoxPrimary.Text);
       userDataDictionary.Add(Credential.UserDataType.Website, txtBoxWebsite.Text);
       userDataDictionary.Add(Credential.UserDataType.Password, txtBoxPassword.Text);
 
-      if(!string.IsNullOrEmpty(txtBoxEmail.Text))
+      if(!string.IsNullOrEmpty(txtBoxSecondary.Text))
       {
         
-        userDataDictionary.Add(Credential.UserDataType.Username, txtBoxUsername.Text);
+        userDataDictionary.Add(Credential.UserDataType.Username, txtBoxSecondary.Text);
       }
 
       userCredential = new Credential(userDataDictionary);
@@ -128,17 +122,17 @@ namespace KeylessGo_GUI
               txtBoxTitle.Text = userCredential.GetData(dataType);
               break;
             case Credential.UserDataType.Email:
-              txtBoxEmail.Text = userCredential.GetData(dataType);
+              txtBoxPrimary.Text = userCredential.GetData(dataType);
               break;
             case Credential.UserDataType.Username:
-              txtBoxUsername.Text = userCredential.GetData(dataType);
+              txtBoxSecondary.Text = userCredential.GetData(dataType);
               break;
             case Credential.UserDataType.Website:
               txtBoxWebsite.Text = userCredential.GetData(dataType);
               break;
-            case Credential.UserDataType.Password:
-              txtBoxPassword.Text = userCredential.GetData(dataType);
-              break;
+            //case Credential.UserDataType.Password:
+            //  txtBoxPassword.Text = userCredential.GetData(dataType);
+            //  break;
           }
         }
       }

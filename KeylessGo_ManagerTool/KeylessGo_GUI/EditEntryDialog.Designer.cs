@@ -33,8 +33,8 @@
       this.label2 = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
-      this.txtBoxUsername = new System.Windows.Forms.TextBox();
-      this.txtBoxEmail = new System.Windows.Forms.TextBox();
+      this.txtBoxPrimary = new System.Windows.Forms.TextBox();
+      this.txtBoxSecondary = new System.Windows.Forms.TextBox();
       this.txtBoxWebsite = new System.Windows.Forms.TextBox();
       this.label5 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
       // 
       // txtBoxTitle
       // 
-      this.txtBoxTitle.Location = new System.Drawing.Point(108, 14);
+      this.txtBoxTitle.Location = new System.Drawing.Point(153, 14);
       this.txtBoxTitle.Name = "txtBoxTitle";
       this.txtBoxTitle.Size = new System.Drawing.Size(216, 20);
       this.txtBoxTitle.TabIndex = 1;
@@ -68,9 +68,9 @@
       this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label2.Location = new System.Drawing.Point(12, 49);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(79, 19);
+      this.label2.Size = new System.Drawing.Size(101, 19);
       this.label2.TabIndex = 2;
-      this.label2.Text = "Username:";
+      this.label2.Text = "Primary Login:";
       // 
       // label3
       // 
@@ -78,9 +78,9 @@
       this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label3.Location = new System.Drawing.Point(12, 75);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(55, 19);
+      this.label3.Size = new System.Drawing.Size(118, 19);
       this.label3.TabIndex = 3;
-      this.label3.Text = "E-Mail:";
+      this.label3.Text = "Secondary Login:";
       // 
       // label4
       // 
@@ -92,23 +92,23 @@
       this.label4.TabIndex = 4;
       this.label4.Text = "Website:";
       // 
-      // txtBoxUsername
+      // txtBoxPrimary
       // 
-      this.txtBoxUsername.Location = new System.Drawing.Point(108, 50);
-      this.txtBoxUsername.Name = "txtBoxUsername";
-      this.txtBoxUsername.Size = new System.Drawing.Size(216, 20);
-      this.txtBoxUsername.TabIndex = 5;
+      this.txtBoxPrimary.Location = new System.Drawing.Point(153, 50);
+      this.txtBoxPrimary.Name = "txtBoxPrimary";
+      this.txtBoxPrimary.Size = new System.Drawing.Size(216, 20);
+      this.txtBoxPrimary.TabIndex = 5;
       // 
-      // txtBoxEmail
+      // txtBoxSecondary
       // 
-      this.txtBoxEmail.Location = new System.Drawing.Point(108, 76);
-      this.txtBoxEmail.Name = "txtBoxEmail";
-      this.txtBoxEmail.Size = new System.Drawing.Size(216, 20);
-      this.txtBoxEmail.TabIndex = 6;
+      this.txtBoxSecondary.Location = new System.Drawing.Point(153, 76);
+      this.txtBoxSecondary.Name = "txtBoxSecondary";
+      this.txtBoxSecondary.Size = new System.Drawing.Size(216, 20);
+      this.txtBoxSecondary.TabIndex = 6;
       // 
       // txtBoxWebsite
       // 
-      this.txtBoxWebsite.Location = new System.Drawing.Point(108, 102);
+      this.txtBoxWebsite.Location = new System.Drawing.Point(153, 102);
       this.txtBoxWebsite.Name = "txtBoxWebsite";
       this.txtBoxWebsite.Size = new System.Drawing.Size(216, 20);
       this.txtBoxWebsite.TabIndex = 7;
@@ -135,7 +135,7 @@
       // 
       // txtBoxPassword
       // 
-      this.txtBoxPassword.Location = new System.Drawing.Point(108, 140);
+      this.txtBoxPassword.Location = new System.Drawing.Point(153, 140);
       this.txtBoxPassword.Name = "txtBoxPassword";
       this.txtBoxPassword.Size = new System.Drawing.Size(216, 20);
       this.txtBoxPassword.TabIndex = 10;
@@ -143,7 +143,7 @@
       // 
       // txtBoxRepeat
       // 
-      this.txtBoxRepeat.Location = new System.Drawing.Point(108, 166);
+      this.txtBoxRepeat.Location = new System.Drawing.Point(153, 166);
       this.txtBoxRepeat.Name = "txtBoxRepeat";
       this.txtBoxRepeat.Size = new System.Drawing.Size(216, 20);
       this.txtBoxRepeat.TabIndex = 11;
@@ -152,7 +152,7 @@
       // bttnShowHidePwd
       // 
       this.bttnShowHidePwd.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.bttnShowHidePwd.Location = new System.Drawing.Point(330, 139);
+      this.bttnShowHidePwd.Location = new System.Drawing.Point(375, 140);
       this.bttnShowHidePwd.Name = "bttnShowHidePwd";
       this.bttnShowHidePwd.Size = new System.Drawing.Size(89, 21);
       this.bttnShowHidePwd.TabIndex = 12;
@@ -163,7 +163,7 @@
       // bttnOk
       // 
       this.bttnOk.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.bttnOk.Location = new System.Drawing.Point(235, 192);
+      this.bttnOk.Location = new System.Drawing.Point(280, 192);
       this.bttnOk.Name = "bttnOk";
       this.bttnOk.Size = new System.Drawing.Size(89, 28);
       this.bttnOk.TabIndex = 13;
@@ -174,7 +174,7 @@
       // bttnCancel
       // 
       this.bttnCancel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.bttnCancel.Location = new System.Drawing.Point(330, 193);
+      this.bttnCancel.Location = new System.Drawing.Point(375, 193);
       this.bttnCancel.Name = "bttnCancel";
       this.bttnCancel.Size = new System.Drawing.Size(89, 28);
       this.bttnCancel.TabIndex = 14;
@@ -186,7 +186,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(428, 233);
+      this.ClientSize = new System.Drawing.Size(476, 233);
       this.Controls.Add(this.bttnCancel);
       this.Controls.Add(this.bttnOk);
       this.Controls.Add(this.bttnShowHidePwd);
@@ -195,8 +195,8 @@
       this.Controls.Add(this.label6);
       this.Controls.Add(this.label5);
       this.Controls.Add(this.txtBoxWebsite);
-      this.Controls.Add(this.txtBoxEmail);
-      this.Controls.Add(this.txtBoxUsername);
+      this.Controls.Add(this.txtBoxSecondary);
+      this.Controls.Add(this.txtBoxPrimary);
       this.Controls.Add(this.label4);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
@@ -219,8 +219,8 @@
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.TextBox txtBoxUsername;
-    private System.Windows.Forms.TextBox txtBoxEmail;
+    private System.Windows.Forms.TextBox txtBoxPrimary;
+    private System.Windows.Forms.TextBox txtBoxSecondary;
     private System.Windows.Forms.TextBox txtBoxWebsite;
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label6;
