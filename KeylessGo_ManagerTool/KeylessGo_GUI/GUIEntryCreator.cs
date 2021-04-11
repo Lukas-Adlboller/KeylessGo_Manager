@@ -66,7 +66,7 @@ namespace KeylessGo_GUI
       // Entry Username
       entryUsername = new Label();
       entryUsername.Font = new Font("Calibri", 12, FontStyle.Regular);
-      entryUsername.Text = string.Format("Username: {0}", credentialInfo.GetData(Credential.UserDataType.Username));
+      entryUsername.Text = string.Format("Username: {0}", credentialInfo.GetData(Credential.UserDataType.Email));
       entryUsername.Location = new Point(260, 20);
       entryUsername.AutoSize = true;
 
@@ -86,7 +86,7 @@ namespace KeylessGo_GUI
 
       // Entry Website Link
       string websiteLink = credentialInfo.GetData(Credential.UserDataType.Website);
-      if(websiteLink != string.Empty)
+      if(string.IsNullOrEmpty(websiteLink))
       {
         entryWebsite = new LinkLabel();
         entryWebsite.Text = websiteLink;
@@ -94,7 +94,14 @@ namespace KeylessGo_GUI
         entryWebsite.Location = new Point(85, 40);
         entryWebsite.AutoSize = true;
 
-        entryIcon.LoadAsync(string.Format(@"https://{0}/favicon.ico", websiteLink));
+        try
+        {
+          entryIcon.LoadAsync(string.Format(@"https://{0}/favicon.ico", websiteLink));
+        }
+        catch(Exception ex)
+        {
+
+        }
       }
 
       // Edit Entry Button

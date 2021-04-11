@@ -52,11 +52,11 @@ namespace KeylessGo_GUI
         return;
       }
 
-      if (string.IsNullOrEmpty(txtBoxWebsite.Text))
-      {
-        MessageBox.Show("Website has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
-        return;
-      }
+      //if (string.IsNullOrEmpty(txtBoxWebsite.Text))
+      //{
+      //  MessageBox.Show("Website has to be set!", "Edit Entry Error", MessageBoxButtons.OK);
+      //  return;
+      //}
 
       if (string.IsNullOrEmpty(txtBoxPassword.Text))
       {
@@ -85,12 +85,6 @@ namespace KeylessGo_GUI
       userDataDictionary.Add(Credential.UserDataType.Email, txtBoxPrimary.Text);
       userDataDictionary.Add(Credential.UserDataType.Website, txtBoxWebsite.Text);
       userDataDictionary.Add(Credential.UserDataType.Password, txtBoxPassword.Text);
-
-      if(!string.IsNullOrEmpty(txtBoxSecondary.Text))
-      {
-        
-        userDataDictionary.Add(Credential.UserDataType.Username, txtBoxSecondary.Text);
-      }
 
       userCredential = new Credential(userDataDictionary);
 
@@ -124,15 +118,9 @@ namespace KeylessGo_GUI
             case Credential.UserDataType.Email:
               txtBoxPrimary.Text = userCredential.GetData(dataType);
               break;
-            case Credential.UserDataType.Username:
-              txtBoxSecondary.Text = userCredential.GetData(dataType);
-              break;
             case Credential.UserDataType.Website:
               txtBoxWebsite.Text = userCredential.GetData(dataType);
               break;
-            //case Credential.UserDataType.Password:
-            //  txtBoxPassword.Text = userCredential.GetData(dataType);
-            //  break;
           }
         }
       }

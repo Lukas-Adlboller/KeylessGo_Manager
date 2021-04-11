@@ -31,10 +31,8 @@
       this.label1 = new System.Windows.Forms.Label();
       this.txtBoxTitle = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
-      this.label3 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
       this.txtBoxPrimary = new System.Windows.Forms.TextBox();
-      this.txtBoxSecondary = new System.Windows.Forms.TextBox();
       this.txtBoxWebsite = new System.Windows.Forms.TextBox();
       this.label5 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
@@ -68,25 +66,15 @@
       this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label2.Location = new System.Drawing.Point(12, 49);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(101, 19);
+      this.label2.Size = new System.Drawing.Size(129, 19);
       this.label2.TabIndex = 2;
-      this.label2.Text = "Primary Login:";
-      // 
-      // label3
-      // 
-      this.label3.AutoSize = true;
-      this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label3.Location = new System.Drawing.Point(12, 75);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(118, 19);
-      this.label3.TabIndex = 3;
-      this.label3.Text = "Secondary Login:";
+      this.label2.Text = "Username / Email:";
       // 
       // label4
       // 
       this.label4.AutoSize = true;
       this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label4.Location = new System.Drawing.Point(12, 101);
+      this.label4.Location = new System.Drawing.Point(12, 75);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(66, 19);
       this.label4.TabIndex = 4;
@@ -99,16 +87,9 @@
       this.txtBoxPrimary.Size = new System.Drawing.Size(216, 20);
       this.txtBoxPrimary.TabIndex = 5;
       // 
-      // txtBoxSecondary
-      // 
-      this.txtBoxSecondary.Location = new System.Drawing.Point(153, 76);
-      this.txtBoxSecondary.Name = "txtBoxSecondary";
-      this.txtBoxSecondary.Size = new System.Drawing.Size(216, 20);
-      this.txtBoxSecondary.TabIndex = 6;
-      // 
       // txtBoxWebsite
       // 
-      this.txtBoxWebsite.Location = new System.Drawing.Point(153, 102);
+      this.txtBoxWebsite.Location = new System.Drawing.Point(153, 76);
       this.txtBoxWebsite.Name = "txtBoxWebsite";
       this.txtBoxWebsite.Size = new System.Drawing.Size(216, 20);
       this.txtBoxWebsite.TabIndex = 7;
@@ -117,7 +98,7 @@
       // 
       this.label5.AutoSize = true;
       this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label5.Location = new System.Drawing.Point(12, 139);
+      this.label5.Location = new System.Drawing.Point(12, 113);
       this.label5.Name = "label5";
       this.label5.Size = new System.Drawing.Size(75, 19);
       this.label5.TabIndex = 8;
@@ -127,7 +108,7 @@
       // 
       this.label6.AutoSize = true;
       this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label6.Location = new System.Drawing.Point(12, 165);
+      this.label6.Location = new System.Drawing.Point(12, 139);
       this.label6.Name = "label6";
       this.label6.Size = new System.Drawing.Size(59, 19);
       this.label6.TabIndex = 9;
@@ -135,7 +116,7 @@
       // 
       // txtBoxPassword
       // 
-      this.txtBoxPassword.Location = new System.Drawing.Point(153, 140);
+      this.txtBoxPassword.Location = new System.Drawing.Point(153, 114);
       this.txtBoxPassword.Name = "txtBoxPassword";
       this.txtBoxPassword.Size = new System.Drawing.Size(216, 20);
       this.txtBoxPassword.TabIndex = 10;
@@ -143,7 +124,7 @@
       // 
       // txtBoxRepeat
       // 
-      this.txtBoxRepeat.Location = new System.Drawing.Point(153, 166);
+      this.txtBoxRepeat.Location = new System.Drawing.Point(153, 140);
       this.txtBoxRepeat.Name = "txtBoxRepeat";
       this.txtBoxRepeat.Size = new System.Drawing.Size(216, 20);
       this.txtBoxRepeat.TabIndex = 11;
@@ -163,7 +144,7 @@
       // bttnOk
       // 
       this.bttnOk.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.bttnOk.Location = new System.Drawing.Point(280, 192);
+      this.bttnOk.Location = new System.Drawing.Point(280, 166);
       this.bttnOk.Name = "bttnOk";
       this.bttnOk.Size = new System.Drawing.Size(89, 28);
       this.bttnOk.TabIndex = 13;
@@ -174,7 +155,7 @@
       // bttnCancel
       // 
       this.bttnCancel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.bttnCancel.Location = new System.Drawing.Point(375, 193);
+      this.bttnCancel.Location = new System.Drawing.Point(375, 167);
       this.bttnCancel.Name = "bttnCancel";
       this.bttnCancel.Size = new System.Drawing.Size(89, 28);
       this.bttnCancel.TabIndex = 14;
@@ -186,7 +167,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(476, 233);
+      this.ClientSize = new System.Drawing.Size(476, 203);
       this.Controls.Add(this.bttnCancel);
       this.Controls.Add(this.bttnOk);
       this.Controls.Add(this.bttnShowHidePwd);
@@ -195,10 +176,8 @@
       this.Controls.Add(this.label6);
       this.Controls.Add(this.label5);
       this.Controls.Add(this.txtBoxWebsite);
-      this.Controls.Add(this.txtBoxSecondary);
       this.Controls.Add(this.txtBoxPrimary);
       this.Controls.Add(this.label4);
-      this.Controls.Add(this.label3);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.txtBoxTitle);
       this.Controls.Add(this.label1);
@@ -217,10 +196,8 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.TextBox txtBoxTitle;
     private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.TextBox txtBoxPrimary;
-    private System.Windows.Forms.TextBox txtBoxSecondary;
     private System.Windows.Forms.TextBox txtBoxWebsite;
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label6;

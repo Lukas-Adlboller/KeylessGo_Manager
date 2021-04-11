@@ -42,7 +42,7 @@
       this.sideMenuePanel = new KeylessGo_GUI.GradientPanel();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
       this.buttonSyncDevice = new System.Windows.Forms.Button();
-      this.buttonSettings = new System.Windows.Forms.Button();
+      this.bttnConnect = new System.Windows.Forms.Button();
       this.buttonImportFile = new System.Windows.Forms.Button();
       this.buttonAddEntry = new System.Windows.Forms.Button();
       this.buttonAbout = new System.Windows.Forms.Button();
@@ -191,7 +191,7 @@
       this.sideMenuePanel.ColorTop = System.Drawing.Color.Empty;
       this.sideMenuePanel.Controls.Add(this.pictureBox2);
       this.sideMenuePanel.Controls.Add(this.buttonSyncDevice);
-      this.sideMenuePanel.Controls.Add(this.buttonSettings);
+      this.sideMenuePanel.Controls.Add(this.bttnConnect);
       this.sideMenuePanel.Controls.Add(this.buttonImportFile);
       this.sideMenuePanel.Controls.Add(this.buttonAddEntry);
       this.sideMenuePanel.Controls.Add(this.buttonAbout);
@@ -233,26 +233,26 @@
       this.buttonSyncDevice.UseVisualStyleBackColor = false;
       this.buttonSyncDevice.Click += new System.EventHandler(this.buttonSyncDevice_Click);
       // 
-      // buttonSettings
+      // bttnConnect
       // 
-      this.buttonSettings.BackColor = System.Drawing.Color.Transparent;
-      this.buttonSettings.FlatAppearance.BorderSize = 0;
-      this.buttonSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-      this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-      this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.buttonSettings.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonSettings.ForeColor = System.Drawing.Color.White;
-      this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.buttonSettings.ImageKey = "(none)";
-      this.buttonSettings.Location = new System.Drawing.Point(12, 250);
-      this.buttonSettings.Name = "buttonSettings";
-      this.buttonSettings.Size = new System.Drawing.Size(179, 41);
-      this.buttonSettings.TabIndex = 4;
-      this.buttonSettings.Text = "  Device Settings";
-      this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.buttonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-      this.buttonSettings.UseVisualStyleBackColor = false;
-      this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+      this.bttnConnect.BackColor = System.Drawing.Color.Transparent;
+      this.bttnConnect.FlatAppearance.BorderSize = 0;
+      this.bttnConnect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+      this.bttnConnect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+      this.bttnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.bttnConnect.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.bttnConnect.ForeColor = System.Drawing.Color.White;
+      this.bttnConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.bttnConnect.ImageKey = "(none)";
+      this.bttnConnect.Location = new System.Drawing.Point(12, 250);
+      this.bttnConnect.Name = "bttnConnect";
+      this.bttnConnect.Size = new System.Drawing.Size(179, 41);
+      this.bttnConnect.TabIndex = 4;
+      this.bttnConnect.Text = "  Reconnect Device";
+      this.bttnConnect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.bttnConnect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+      this.bttnConnect.UseVisualStyleBackColor = false;
+      this.bttnConnect.Click += new System.EventHandler(this.buttonSettings_Click);
       // 
       // buttonImportFile
       // 
@@ -352,7 +352,7 @@
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.Button buttonAddEntry;
     private System.Windows.Forms.Button buttonImportFile;
-    private System.Windows.Forms.Button buttonSettings;
+    private System.Windows.Forms.Button bttnConnect;
     private System.Windows.Forms.Button buttonSyncDevice;
     private System.Windows.Forms.Button buttonDeviceInfo;
     private System.Windows.Forms.Button buttonSoftwareInfo;

@@ -66,7 +66,7 @@ namespace KeylessGo_GUI
     );
 
     public Dictionary<GUIEntryCreator, Credential> userPasswordDictionary;
-    public static Credential credentialQueue;
+    public static Queue<Credential> credentialQueue;
     public static SerialPort serialPort;
 
     private const string vidPattern = @"VID_([0-9A-F]{4})";
@@ -76,17 +76,18 @@ namespace KeylessGo_GUI
     {
       InitializeComponent();
 
-      List<ComPort> ports = GetSerialPorts();
-      ComPort com = ports.FindLast(c => c.vid.Equals("2341") && c.pid.Equals("8036"));
+      credentialQueue = new Queue<Credential>();
 
-      if(com.name == null)
+      string portName = GetPortName();
+
+      if(portName == null)
       {
         MessageBox.Show("No supported device connected!", "No Device found", MessageBoxButtons.OK, MessageBoxIcon.Information);
         Environment.Exit(-1);
       }
 
       userPasswordDictionary = new Dictionary<GUIEntryCreator, Credential>();
-      serialPort = new SerialPort(com.name, 9600);
+      serialPort = new SerialPort(portName, 115200);
       serialPort.Parity = Parity.None;
       serialPort.DataBits = 8;
       serialPort.StopBits = StopBits.One;
@@ -110,6 +111,27 @@ namespace KeylessGo_GUI
       }
     }
 
+    private string GetPortName()
+    {
+      List<ComPort> ports = GetSerialPorts();
+      ComPort com = ports.FindLast(c => c.vid.Equals("2341") && c.pid.Equals("8036"));
+
+      return com.name;
+    }
+
+    private void SerialSafeWrite(byte[] buffer, int length)
+    {
+      try
+      {
+        serialPort.Write(buffer, 0, length);
+      }
+      catch(Exception ex)
+      {
+        MessageBox.Show("Error while sending data to device! Please reconnect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return;
+      }
+    }
+
     private void MainForm_Load(object sender, EventArgs e)
     {
       // Rounded Corners for Form
@@ -124,7 +146,7 @@ namespace KeylessGo_GUI
       buttonAddEntry.Image = KeylessGo_GUI.Properties.Resources.add_entry_icon;
       buttonImportFile.Image = KeylessGo_GUI.Properties.Resources.import_file_icon;
       buttonSyncDevice.Image = KeylessGo_GUI.Properties.Resources.sync_icon;
-      buttonSettings.Image = KeylessGo_GUI.Properties.Resources.settings_icon;
+      bttnConnect.Image = KeylessGo_GUI.Properties.Resources.settings_icon;
 
       buttonSoftwareInfo.Image = KeylessGo_GUI.Properties.Resources.software_icon;
       buttonDeviceInfo.Image = KeylessGo_GUI.Properties.Resources.device_icon;
@@ -195,6 +217,17 @@ namespace KeylessGo_GUI
         return;
       }
 
+      if(byteData[0] == (byte)SerialCommandLimiter.ACK && credentialQueue.Count != 0)
+      {
+        byte[] command =
+        {
+          (byte)SerialCommandLimiter.COMM_BEGIN,
+          (byte)SerialCommand.COMM_GET_UNIQUE_ID,
+          (byte)SerialCommandLimiter.COMM_END
+        };
+        SerialSafeWrite(command, 3);
+      }
+
 
       if(byteData[0] == (byte)SerialCommandLimiter.NACK)
       {
@@ -227,21 +260,27 @@ namespace KeylessGo_GUI
           string url = extractEntryData(ref byteData, (byte)SerialCommandLimiter.COMM_END);
 
           this.Invoke(new Action<int, string, string, string, string, string>(AddEntryFromSerial), entryId, title, usr, email, pwd, url);
+
+          byte[] cmd = { (byte)SerialCommandLimiter.ACK };
+          SerialSafeWrite(cmd, 1);
           break;
         case SerialCommand.COMM_SEND_UNIQUE_ID:
-          if(credentialQueue != null)
+          if(credentialQueue.Count != 0)
           {
+            Credential credential = credentialQueue.Dequeue();
             entryId = (byteData[2] << 8) | byteData[3];
             this.Invoke(
               new Action<int, string, string, string, string, string>(SendEntryToSerial),
               entryId,
-              credentialQueue.GetData(Credential.UserDataType.Title),
-              credentialQueue.GetData(Credential.UserDataType.Username),
-              credentialQueue.GetData(Credential.UserDataType.Email),
-              credentialQueue.GetData(Credential.UserDataType.Password),
-              credentialQueue.GetData(Credential.UserDataType.Website));
-            credentialQueue = null;
+              credential.GetData(Credential.UserDataType.Title),
+              credential.GetData(Credential.UserDataType.Username),
+              credential.GetData(Credential.UserDataType.Email),
+              credential.GetData(Credential.UserDataType.Password),
+              credential.GetData(Credential.UserDataType.Website));
           }
+
+          byte[] ack = { (byte)SerialCommandLimiter.ACK };
+          SerialSafeWrite(ack, 1);
           break;
       }
     }
@@ -274,6 +313,13 @@ namespace KeylessGo_GUI
     private static void CopyArray(string input, ref byte[] output, ref int outputIdx, int maxLength)
     {
       byte[] strByteData = Encoding.ASCII.GetBytes(input);
+
+      if(strByteData.Length == 0)
+      {
+        output[outputIdx++] = (byte)' ';
+        return;
+      }
+
       for(var i = 0; i < maxLength; i++)
       {
         output[outputIdx++] = strByteData[i];
@@ -296,7 +342,7 @@ namespace KeylessGo_GUI
       int commandIdx = 2;
       CopyArray(title, ref command, ref commandIdx, 16);
       command[commandIdx++] = (byte)SerialCommandLimiter.US;
-      CopyArray(usr, ref command, ref commandIdx, 32);
+      command[commandIdx++] = (byte)' ';
       command[commandIdx++] = (byte)SerialCommandLimiter.US;
       CopyArray(email, ref command, ref commandIdx, 64);
       command[commandIdx++] = (byte)SerialCommandLimiter.US;
@@ -305,7 +351,7 @@ namespace KeylessGo_GUI
       CopyArray(url, ref command, ref commandIdx, 24);
       command[commandIdx++] = (byte)SerialCommandLimiter.COMM_END;
 
-      serialPort.Write(command, 0, command.Length);
+      SerialSafeWrite(command, commandIdx);
     }
 
     private void panelInformation_MouseDown(object sender, MouseEventArgs e)
@@ -344,7 +390,7 @@ namespace KeylessGo_GUI
           (byte)(entryId & 0xFF),
           (byte)SerialCommandLimiter.COMM_END
         };
-        serialPort.Write(command, 0, 5);
+        SerialSafeWrite(command, 5);
 
         if (userPasswordDictionary.Count == 0)
         {
@@ -394,14 +440,12 @@ namespace KeylessGo_GUI
         CopyArray(credential.GetData(Credential.UserDataType.Website), ref command, ref commandIdx, 24);
         command[commandIdx++] = (byte)SerialCommandLimiter.COMM_END;
 
-        serialPort.Write(command, 0, command.Length);
+        SerialSafeWrite(command, commandIdx);
       }
     }
 
     private void buttonImportFile_Click(object sender, EventArgs e)
     {
-      // Import does work but sending accounts to device does not.
-
       using(OpenFileDialog openFileDialog = new OpenFileDialog())
       {
 
@@ -434,12 +478,16 @@ namespace KeylessGo_GUI
 
           foreach(Credential credential in userPasswords)
           {
-            userPasswordDictionary.Add(new GUIEntryCreator(
-              entryFlowLayoutPanel, 
-              credential, 
-              new MouseEventHandler(DeleteButton_OnMouseClick),
-              new MouseEventHandler(EditButton_OnMouseClick)), credential);
+            credentialQueue.Enqueue(credential);
           }
+
+          byte[] command =
+          {
+            (byte)SerialCommandLimiter.COMM_BEGIN,
+            (byte)SerialCommand.COMM_GET_UNIQUE_ID,
+            (byte)SerialCommandLimiter.COMM_END
+          };
+          SerialSafeWrite(command, 3);
         }
       }
     }
@@ -454,7 +502,7 @@ namespace KeylessGo_GUI
       EditEntryDialog editEntryDialog = new EditEntryDialog();
       if(editEntryDialog.ShowDialog() == DialogResult.OK)
       {
-        credentialQueue = new Credential(editEntryDialog.UserCredential);
+        credentialQueue.Enqueue(new Credential(editEntryDialog.UserCredential));
       }
 
       byte[] command =
@@ -463,7 +511,7 @@ namespace KeylessGo_GUI
         (byte)SerialCommand.COMM_GET_UNIQUE_ID,
         (byte)SerialCommandLimiter.COMM_END
       };
-      serialPort.Write(command, 0, 3);
+      SerialSafeWrite(command, 3);
 
       if(userPasswordDictionary.Count != 0)
       {
@@ -492,7 +540,7 @@ namespace KeylessGo_GUI
         (byte)SerialCommandLimiter.COMM_END
       };
 
-      serialPort.Write(command, 0, 3);
+      SerialSafeWrite(command, 3);
     }
 
     private void buttonAbout_Click(object sender, EventArgs e)
@@ -502,7 +550,29 @@ namespace KeylessGo_GUI
 
     private void buttonSettings_Click(object sender, EventArgs e)
     {
-      MessageBox.Show("This feature is not implemented yet.", "KeylessGo Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+      if(serialPort.IsOpen)
+      {
+        serialPort.Close();
+      }
+
+      string portName = GetPortName();
+      if(portName == null)
+      {
+        MessageBox.Show("Device not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return;
+      }
+
+      serialPort.PortName = portName;
+
+      try
+      {
+        serialPort.Open();
+      }
+      catch(Exception ex)
+      {
+        MessageBox.Show("Could not connect to device!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        return;
+      }
     }
   }
 }
